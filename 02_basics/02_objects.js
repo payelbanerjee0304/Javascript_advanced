@@ -78,7 +78,28 @@ const newobj = [
 
 // console.log(newobj[1].email); //b
 let tinderKeys = Object.keys(tinderUser);
-console.log(tinderKeys); //[ 'id', 'name', 'place' ]
+// console.log(tinderKeys); //[ 'id', 'name', 'place' ]
 let tinderValues = Object.values(tinderUser);
-console.log(tinderValues); //[ 123, 'Payel', 'kolkata' ]
-console.log(tinderUser.hasOwnProperty("name")); //true
+// console.log(tinderValues); //[ 123, 'Payel', 'kolkata' ]
+// console.log(tinderUser.hasOwnProperty("name")); //true
+
+//+++++++++++++++++++++++++++++++++++++Object Destructure ++++++++++++++++++++++++++++++++++
+const video = {
+  course: "JS",
+  price: "1999",
+  host: "payel",
+};
+
+//destructure
+// const { host } = video;
+// console.log(host);
+const { host: person } = video;
+console.log(person);
+
+//json format
+// {
+//   'course': "JS",
+//   'price': "1999",
+//   'host': "payel",
+// }
+[{}, {}, {}];

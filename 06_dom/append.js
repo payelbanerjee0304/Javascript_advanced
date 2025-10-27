@@ -1,0 +1,10 @@
+const div = document.createElement("div");
+console.log(div);
+div.setAttribute("title", "myTitle");
+div.style.color = "yellow";
+div.style.backgroundColor = "green";
+div.id = "abc";
+// div.innerText = "Payel";
+const text = document.createTextNode("Payel");
+div.appendChild(text);
+document.body.appendChild(div);

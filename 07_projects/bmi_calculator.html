@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
+    <style>
+      /* Overall page style */
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #74ebd5, #9face6);
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+
+      /* Wrapper to hold both calculator and table side by side */
+      .main-wrapper {
+        display: flex;
+        gap: 40px;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Container box (left) */
+      .container {
+        background: #fff;
+        padding: 30px 40px;
+        border-radius: 20px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        text-align: center;
+        width: 320px;
+      }
+
+      h1 {
+        margin-bottom: 25px;
+        color: #333;
+        font-size: 26px;
+      }
+
+      form p {
+        margin: 15px 0;
+        text-align: left;
+      }
+
+      label {
+        display: block;
+        font-weight: 600;
+        color: #444;
+        margin-bottom: 5px;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        outline: none;
+        transition: 0.3s;
+        font-size: 15px;
+      }
+
+      input:focus {
+        border-color: #6c63ff;
+        box-shadow: 0 0 5px rgba(108, 99, 255, 0.4);
+      }
+
+      #submitdiv {
+        display: flex;
+        justify-content: center;
+      }
+      button,
+      #reset {
+        margin-top: 15px;
+        background: #6c63ff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+        /* width: 100%; */
+      }
+
+      button:hover {
+        background: #5848d3;
+      }
+
+      #results {
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: 600;
+        color: #222;
+      }
+
+      #category {
+        margin-top: 8px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #555;
+      }
+
+      /* Table (right side) */
+      table {
+        background: #fff;
+        border-collapse: collapse;
+        border-radius: 20px;
+        overflow: hidden;
+        width: 320px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      thead {
+        background: #6c63ff;
+        color: #fff;
+      }
+
+      th,
+      td {
+        padding: 27.5px 16px;
+        text-align: left;
+        font-size: 15px;
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: #f3f3f3;
+      }
+
+      tbody tr:hover {
+        background-color: #e8e5ff;
+        transition: 0.3s;
+      }
+
+      th {
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .main-wrapper {
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>BMI Calculator</h1>
+      <form action="">
+        <p>
+          <label for="">Height in CM</label>
+          <input
+            type="number"
+            name=""
+            id="height"
+            placeholder="Enter your height"
+          />
+        </p>
+        <p>
+          <label for="">Weight in kg</label>
+          <input
+            type="number"
+            name=""
+            id="weight"
+            placeholder="Enter your weight"
+          />
+        </p>
+        <div id="submitdiv">
+          <button id="calculate">Calculate</button> &nbsp;
+          <button id="reset" style="display: none">Reset</button>
+        </div>
+        <div id="results"></div>
+        <div id="category"></div>
+      </form>
+    </div>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>BMI Category</th>
+            <th>BMI Range</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Under-weight</td>
+            <td>Below 18.5</td>
+          </tr>
+          <tr>
+            <td>Normal</td>
+            <td>18.5 – 24.9</td>
+          </tr>
+          <tr>
+            <td>Over-weight</td>
+            <td>25.0 – 29.9</td>
+          </tr>
+          <tr>
+            <td>Obesity</td>
+            <td>30.0 or above</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="bmi_calculator.js"></script>
+  </body>
+</html>

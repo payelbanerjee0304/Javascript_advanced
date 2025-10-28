@@ -42,7 +42,7 @@ form.addEventListener("submit", (e) => {
       );
     }
   }
-  guess.value = "";
+  guess.blur();
 });
 guess.addEventListener("focus", (e) => {
   guess.value = "";

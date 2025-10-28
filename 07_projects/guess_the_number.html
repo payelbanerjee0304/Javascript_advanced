@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess the Number 🎯</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #4a00e0, #8e2de2);
+        color: #fff;
+      }
+
+      .game-container {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem 3rem;
+        border-radius: 16px;
+        text-align: center;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        width: 320px;
+        transition: all 0.3s ease;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 1rem;
+        margin: 0.5rem 0;
+      }
+
+      input[type="number"] {
+        width: 100%;
+        padding: 0.6rem;
+        margin-top: 1rem;
+        border: none;
+        border-radius: 8px;
+        outline: none;
+        font-size: 1rem;
+        text-align: center;
+      }
+
+      button {
+        margin-top: 1rem;
+        background: #ff4081;
+        border: none;
+        color: white;
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background: #f50057;
+      }
+
+      .message {
+        margin-top: 1rem;
+        font-weight: 600;
+        min-height: 1.5em;
+      }
+
+      .reset-btn {
+        margin-top: 1rem;
+        background: #00e676;
+        display: none;
+      }
+
+      .fade-in {
+        animation: fadeIn 0.6s ease-in-out;
+      }
+
+      /* @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="game-container fade-in">
+      <h1>🎯 Guess the Number!</h1>
+      <p>
+        I'm thinking of a number between <strong>1</strong> and
+        <strong>100</strong>.
+      </p>
+      <form action="">
+        <div>
+          <input
+            type="number"
+            id="guess"
+            placeholder="Enter your guess"
+            min="1"
+            max="100"
+          />
+          <small id="required" style="display: none"
+            >This field is required</small
+          >
+        </div>
+        <button id="submit">Guess</button>
+      </form>
+      <p class="message" id="message"></p>
+      <button class="reset-btn" id="reset">Play Again 🔁</button>
+    </div>
+    <script src="guess_the_number.js"></script>
+    <!-- <script>
+      const randomNumber = () => Math.floor(Math.random() * 100) + 1;
+      let number = randomNumber();
+      let attempts = 0;
+
+      const guessInput = document.getElementById("guess");
+      const message = document.getElementById("message");
+      const submitBtn = document.getElementById("submit");
+      const resetBtn = document.getElementById("reset");
+
+      submitBtn.addEventListener("click", () => {
+        const guess = parseInt(guessInput.value);
+        if (isNaN(guess) || guess < 1 || guess > 100) {
+          message.textContent = "⚠️ Please enter a number between 1 and 100.";
+          return;
+        }
+
+        attempts++;
+        if (guess === number) {
+          message.textContent = `🎉 Correct! You got it in ${attempts} tries.`;
+          message.style.color = "#00e676";
+          resetBtn.style.display = "inline-block";
+          submitBtn.disabled = true;
+        } else if (guess < number) {
+          message.textContent = "📉 Too low! Try a higher number.";
+          message.style.color = "#ffeb3b";
+        } else {
+          message.textContent = "📈 Too high! Try a lower number.";
+          message.style.color = "#ffeb3b";
+        }
+
+        guessInput.value = "";
+        guessInput.focus();
+      });
+
+      resetBtn.addEventListener("click", () => {
+        number = randomNumber();
+        attempts = 0;
+        message.textContent = "";
+        submitBtn.disabled = false;
+        resetBtn.style.display = "none";
+        guessInput.value = "";
+        message.style.color = "#fff";
+        guessInput.focus();
+      });
+    </script> -->
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #000;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20rem;
+        color: #fff;
+      }
+      th,
+      td {
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="project">
+      <div id="insert">
+        <div class="key">Press the key & watch magic</div>
+      </div>
+    </div>
+    <script>
+      let insert = document.querySelector("#insert");
+      window.addEventListener("keydown", (e) => {
+        // console.log(e.key);
+        // console.log(e.keyCode);
+        // console.log(e.code);
+        insert.innerHTML = `
+        <table border="3" >
+          <tr>
+            <th>Key</th>
+            <th>Keycode</th>
+            <th>Code</th>
+          </tr>
+          <tr>
+            <td>${e.key}</td>
+            <td>${e.keyCode}</td>
+            <td>${e.code}</td>
+          </tr>
+        </table>
+        `;
+      });
+    </script>
+  </body>
+</html>

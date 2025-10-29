@@ -20,15 +20,18 @@
       }
       return color;
     };
+    let interval;
     document.querySelector("#start").addEventListener("click", () => {
-      const interval = setInterval(() => {
-        console.log(randomColor());
-        body.style.background = randomColor();
-      }, 1000);
-      document.querySelector("#stop").addEventListener("click", () => {
-        clearInterval(interval);
-        interval = null;
-      });
+      if (!interval) {
+        interval = setInterval(() => {
+          console.log(randomColor());
+          body.style.background = randomColor();
+        }, 1000);
+      }
+    });
+    document.querySelector("#stop").addEventListener("click", () => {
+      clearInterval(interval);
+      interval = null;
     });
 
     // const colorPop = color.forEach((element) => {

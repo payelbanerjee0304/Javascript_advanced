@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hello World</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    const newtime = (str) => {
+      console.log(str, new Date());
+    };
+    // const interval = setInterval(newtime, 1000, "Payel");
+
+    document.querySelector("#start").addEventListener("click", () => {
+      const interval = setInterval(newtime, 1000, "Payel");
+      document.querySelector("#stop").addEventListener("click", () => {
+        clearInterval(interval);
+      });
+    });
+  </script>
+</html>

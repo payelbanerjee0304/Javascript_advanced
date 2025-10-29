@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hello World</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    const body = document.querySelector("body");
+    const randomColor = () => {
+      const hex = "0123456789ABCDEF";
+      let color = "#";
+      for (let i = 0; i < 6; i++) {
+        color += hex[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    };
+    document.querySelector("#start").addEventListener("click", () => {
+      const interval = setInterval(() => {
+        console.log(randomColor());
+        body.style.background = randomColor();
+      }, 1000);
+      document.querySelector("#stop").addEventListener("click", () => {
+        clearInterval(interval);
+        interval = null;
+      });
+    });
+
+    // const colorPop = color.forEach((element) => {
+    //   console.log(color.pop());
+    //   console.log(color);
+    // });
+    // const newtime = (str) => {
+    //   body.style.background = str;
+    // };
+
+    // document.querySelector("#start").addEventListener("click", () => {
+    //   const interval = setInterval(newtime, 1000, randomColor());
+    //   document.querySelector("#stop").addEventListener("click", () => {
+    //     clearInterval(interval);
+    //   });
+    // });
+  </script>
+</html>

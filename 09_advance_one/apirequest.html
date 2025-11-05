@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">click</button>
+    <img
+      src=""
+      alt=""
+      srcset=""
+      id="imgSrc"
+      style="width: 120px; height: 120px; border-radius: 50%; display: none"
+    />
+    <script>
+      const requestUrl = "https://api.github.com/users/payelbanerjee0304";
+      const xhr = new XMLHttpRequest();
+      const btn = document.querySelector("#btn");
+      let imgSrc = document.getElementById("imgSrc");
+      xhr.open("GET", requestUrl);
+      xhr.onreadystatechange = function () {
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+          const data = this.responseText;
+          console.log(data);
+          console.log(typeof data);
+          const convertedData = JSON.parse(this.responseText);
+          console.log(typeof convertedData);
+          console.log(this.responseText.followers);
+          console.log(convertedData.followers);
+          imgSrc.src = convertedData.avatar_url;
+        }
+      };
+
+      btn.addEventListener("click", () => {
+        imgSrc.style.display = "block";
+      });
+      xhr.send();
+    </script>
+  </body>
+</html>

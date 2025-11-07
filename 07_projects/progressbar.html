@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gauge Demo - 225mph Needle</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #111;
+        font-family: Arial, sans-serif;
+      }
+
+      #g1 {
+        width: 350px;
+        height: 350px;
+      }
+
+      /* ✅ Thin needle styling */
+      .justgage .gauge-pointer {
+        stroke: #ff3300 !important;
+        stroke-width: 4px !important;
+      }
+
+      .justgage .gauge-value {
+        fill: #fff !important;
+      }
+
+      .justgage .gauge-min,
+      .justgage .gauge-max {
+        fill: #ccc !important;
+      }
+      tspan {
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="g1"></div>
+
+    <!-- Raphael JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+
+    <!-- JustGage JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/justgage/1.3.5/justgage.min.js"></script>
+
+    <script>
+      var g1 = new JustGage({
+        id: "g1",
+        value: 71, // ✅ current % value
+        min: 0,
+        max: 100, // ✅ max is 100%
+        decimals: 0,
+        gaugeWidthScale: 0.22,
+        donut: false,
+        pointer: true,
+        pointerOptions: {
+          toplength: 40,
+          bottomlength: 60,
+          bottomwidth: 4,
+          color: "#ff3300",
+        },
+        counter: true,
+        valueFontColor: "#fff",
+        textRenderer: function (val) {
+          return val + "%"; // ✅ show % instead of mph
+        },
+        levelColors: ["#ff3300"],
+        hideMinMax: true,
+      });
+    </script>
+  </body>
+</html>

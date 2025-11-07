@@ -66,7 +66,42 @@ const promiseFive = new Promise((resolve, reject) => {
     if (!error) {
       resolve({ username: "JS", password: "123" });
     } else {
-      reject("Something went wrong");
+      reject("JS went wrong");
     }
   }, 1000);
 });
+
+async function consumePromiseFive() {
+  try {
+    const res = await promiseFive;
+    console.log(res);
+  } catch (error) {
+    console.log(error);
+  }
+}
+consumePromiseFive();
+
+// const getAllUsers = async (params) => {
+//   try {
+//     const response = await fetch("https://jsonplaceholder.typicode.com/users");
+//     // console.log(response);
+//     const data = await response.json();
+//     console.log(data);
+//   } catch (error) {
+//     console.log("E", error);
+//   }
+// };
+// getAllUsers();
+
+fetch("https://jsonplaceholder.typicode.com/users")
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    // console.log(data);
+    for (let i = 0; i < data.length; i++) {
+      const element = data[i].name;
+      console.log(element);
+    }
+    // console.log(data[0].name);
+  });
